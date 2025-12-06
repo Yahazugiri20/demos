@@ -44,5 +44,9 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
+  "overrides": {
+    "electron-to-chromium": "1.5.260",
+    "baseline-browser-mapping": "2.8.0"
+  },
   "packageManager": "npm@11.5.2"
 }
