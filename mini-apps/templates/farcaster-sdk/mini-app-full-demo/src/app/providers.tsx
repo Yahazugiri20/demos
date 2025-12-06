@@ -2,18 +2,18 @@
 
 import dynamic from "next/dynamic";
 
-import FrameProvider from "~/components/providers/FrameProvider";
+import FrameProvider from "~/components/providers/frame-provider";
 
 
 const WagmiProvider = dynamic(
-  () => import("~/components/providers/WagmiProvider"),
+  () => import("~/components/providers/wagmi-provider"),
   {
     ssr: false,
   }
 );
 
 const ErudaProvider = dynamic(
-  () => import("~/components/providers/ErudaProvider"),
+  () => import("~/components/providers/eruda-provider"),
   {
     ssr: false,
   }

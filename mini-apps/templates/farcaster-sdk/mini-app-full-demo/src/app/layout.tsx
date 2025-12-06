@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 
 import "~/app/globals.css";
+import "@worldcoin/mini-apps-ui-kit-react/styles.css";
 import { Providers } from "~/app/providers";
 import { METADATA } from "~/lib/utils";
 
