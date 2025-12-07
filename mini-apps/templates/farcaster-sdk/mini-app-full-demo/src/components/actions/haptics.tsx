@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import { sdk } from "@farcaster/miniapp-sdk";
-import { Button } from "~/components/ui/Button";
+import { Button } from "~/components/ui/button";
 
 export function HapticsAction() {
   const triggerImpactLight = useCallback(async (): Promise<void> => {

@@ -2,13 +2,17 @@
 
 import { useState, useCallback } from "react";
 import { sdk } from "@farcaster/miniapp-sdk";
-import { Button } from "~/components/ui/Button";
+import { Button } from "~/components/ui/button";
+
+type ExtendedActions = {
+  openUrl: (url: string) => void;
+};
 
 export function OpenUrlAction() {
   const [customUrl, setCustomUrl] = useState<string>("https://google.com");
 
   const openUrl = useCallback((): void => {
-    sdk.actions.openUrl(customUrl);
+    (sdk.actions as ExtendedActions).openUrl(customUrl);
   }, [customUrl]);
 
   return (

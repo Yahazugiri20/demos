@@ -1,21 +1,50 @@
+import * as React from "react";
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+  variant?: "default" | "outline" | "secondary" | "ghost" | "destructive";
+  size?: "default" | "sm" | "lg" | "icon";
   isLoading?: boolean;
 }
 
-export function Button({ children, className = "", isLoading = false, ...props }: ButtonProps) {
-  return (
-    <button
-      className={`w-full max-w-xs mx-auto block bg-primary text-primary-foreground py-3 px-6 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${className}`}
-      {...props}
-    >
-      {isLoading ? (
-        <div className="flex items-center justify-center">
-          <div className="animate-spin h-5 w-5 border-2 border-primary-foreground border-t-transparent rounded-full" />
-        </div>
-      ) : (
-        children
-      )}
-    </button>
-  );
-}
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className = "", variant = "default", size = "default", isLoading = false, children, ...props }, ref) => {
+    const baseClasses = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+    
+    const variantClasses = {
+      default: "bg-primary text-primary-foreground hover:bg-primary/90",
+      destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90", 
+      outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+      secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      ghost: "hover:bg-accent hover:text-accent-foreground",
+    };
+    
+    const sizeClasses = {
+      default: "h-10 px-4 py-2 text-sm",
+      sm: "h-9 rounded-md px-3 text-sm",
+      lg: "h-11 rounded-md px-8 text-sm", 
+      icon: "h-10 w-10",
+    };
+
+    const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
+    return (
+      <button
+        className={classes}
+        ref={ref}
+        disabled={isLoading || props.disabled}
+        {...props}
+      >
+        {isLoading ? (
+          <div className="flex items-center justify-center">
+            <div className="animate-spin h-4 w-4 border-2 border-current border-t-transparent rounded-full mr-2" />
+            {children}
+          </div>
+        ) : (
+          children
+        )}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "Button";

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { sdk } from "@farcaster/miniapp-sdk";
-import { Button } from "~/components/ui/Button";
+import { Button } from "~/components/ui/button";
 
 type CaptureMode = "camera" | "microphone";
 

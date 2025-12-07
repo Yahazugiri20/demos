@@ -54,8 +54,7 @@ export default function FrameProvider({ children }: { children: React.ReactNode 
         const isInMiniApp = await sdk.isInMiniApp();
         setFrameContext({ context, isInMiniApp });
         
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {
+      } catch {
         setFrameContext({ 
           context: { error: 'Failed to initialize' }, 
           isInMiniApp: false 

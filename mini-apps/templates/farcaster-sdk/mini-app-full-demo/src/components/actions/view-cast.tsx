@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { sdk } from "@farcaster/miniapp-sdk";
-import { Button } from "~/components/ui/Button";
+import { Button } from "~/components/ui/button";
 
 export function ViewCastAction() {
   const [castHash, setCastHash] = useState<string>("0xfb2e255124ddb549a53fb4b1afdf4fa9f3542f78");

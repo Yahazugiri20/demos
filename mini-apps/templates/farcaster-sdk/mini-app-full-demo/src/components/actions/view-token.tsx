@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { sdk } from "@farcaster/miniapp-sdk";
-import { Button } from "~/components/ui/Button";
+import { Button } from "~/components/ui/button";
 
 export function ViewTokenAction() {
   const [token, setToken] = useState<string>("eip155:8453/erc20:0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913");
