@@ -14,6 +14,7 @@ import { ViewProfileAction } from "~/components/actions/view-profile";
 import { ViewTokenAction } from "~/components/actions/view-token";
 import { SwapTokenAction } from "~/components/actions/swap-token";
 import { SendTokenAction } from "~/components/actions/send-token";
+import { RequestSpendPermissionAction } from "~/components/actions/request-spend-permission";
 import { ViewCastAction } from "~/components/actions/view-cast";
 import { ComposeCastAction } from "~/components/actions/compose-cast";
 import { AddMiniAppAction } from "~/components/actions/add-miniapp";
@@ -76,6 +77,7 @@ export default function Demo() {
     { id: "viewtoken", name: "View Token", description: "Display token information", component: ViewTokenAction, icon: Coins },
     { id: "swaptoken", name: "Swap Token", description: "Token swapping functionality", component: SwapTokenAction, icon: ArrowUp },
     { id: "sendtoken", name: "Send Token", description: "Send tokens to users", component: SendTokenAction, icon: Send },
+    { id: "spendpermission", name: "Request Spend Permission", description: "Authorize a spender to move funds", component: RequestSpendPermissionAction, icon: Coins },
     { id: "viewcast", name: "View Cast", description: "Display Farcaster casts", component: ViewCastAction, icon: Eye },
     { id: "composecast", name: "Compose Cast", description: "Create new casts", component: ComposeCastAction, icon: Edit },
     { id: "haptics", name: "Haptics", description: "Trigger haptic feedback", component: HapticsAction, icon: Phone },
