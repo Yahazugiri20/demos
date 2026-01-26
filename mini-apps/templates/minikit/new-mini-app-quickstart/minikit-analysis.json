@@ -1,0 +1,91 @@
+{
+  "project_dir": "/Users/canton/git/demos/mini-apps/templates/minikit/new-mini-app-quickstart",
+  "files_scanned": 9,
+  "files_with_minikit": 5,
+  "imports": [
+    {
+      "file": "app/rootProvider.tsx",
+      "line": 4,
+      "imports": [
+        "OnchainKitProvider"
+      ]
+    },
+    {
+      "file": "app/layout.tsx",
+      "line": 3,
+      "imports": [
+        "SafeArea"
+      ]
+    },
+    {
+      "file": "app/page.tsx",
+      "line": 3,
+      "imports": [
+        "useQuickAuth",
+        "useMiniKit"
+      ]
+    },
+    {
+      "file": "app/success/page.tsx",
+      "line": 3,
+      "imports": [
+        "useComposeCast"
+      ]
+    },
+    {
+      "file": "app/.well-known/farcaster.json/route.ts",
+      "line": 1,
+      "imports": [
+        "withValidManifest"
+      ]
+    }
+  ],
+  "hook_usages": [
+    {
+      "hook": "useMiniKit",
+      "file": "app/page.tsx",
+      "line": 20,
+      "code": "const { isFrameReady, setFrameReady, context } = useMiniKit();"
+    },
+    {
+      "hook": "useComposeCast",
+      "file": "app/success/page.tsx",
+      "line": 9,
+      "code": "const { composeCastAsync } = useComposeCast();"
+    }
+  ],
+  "provider_locations": [
+    {
+      "file": "app/rootProvider.tsx",
+      "line": 4,
+      "code": "import { OnchainKitProvider } from \"@coinbase/onchainkit\";"
+    },
+    {
+      "file": "app/rootProvider.tsx",
+      "line": 9,
+      "code": "<OnchainKitProvider"
+    },
+    {
+      "file": "app/rootProvider.tsx",
+      "line": 21,
+      "code": "miniKit={{"
+    },
+    {
+      "file": "app/rootProvider.tsx",
+      "line": 28,
+      "code": "</OnchainKitProvider>"
+    }
+  ],
+  "summary": {
+    "total_hook_usages": 2,
+    "hooks_by_type": {
+      "useMiniKit": 1,
+      "useComposeCast": 1
+    },
+    "has_provider": true,
+    "unique_hooks_used": [
+      "useMiniKit",
+      "useComposeCast"
+    ]
+  }
+}
