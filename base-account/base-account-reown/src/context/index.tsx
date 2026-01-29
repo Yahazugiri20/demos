@@ -17,6 +17,9 @@ const metadata = {
   icons: ['https://avatars.githubusercontent.com/u/179229932']
 }
 
+// Base Account wallet ID
+const BASE_ACCOUNT_WALLET_ID = 'fd20dc426fb37566d803205b19bbc1d4096b248ac04548e3cfb6b3a38bd033aa'
+
 // Create the modal
 export const modal = createAppKit({
   adapters: [wagmiAdapter],
@@ -25,11 +28,19 @@ export const modal = createAppKit({
   metadata,
   themeMode: 'light',
   features: {
-    analytics: true // Optional - defaults to your Cloud configuration
+    analytics: true,
+    connectMethodsOrder: ['wallet', 'email', 'social'], // Wallets first
   },
   themeVariables: {
     '--w3m-accent': '#000000',
-  }
+  },
+  // Only show Base Account wallet
+  featuredWalletIds: [BASE_ACCOUNT_WALLET_ID],
+  includeWalletIds: [BASE_ACCOUNT_WALLET_ID],
+  allWallets: 'SHOW',
+  // Disable other connection methods
+  //enableWalletConnect: false,
+  enableWallets: true, // Disable injected wallets
 })
 
 function ContextProvider({ children, cookies }: { children: ReactNode; cookies: string | null }) {
